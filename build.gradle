@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.gradle.plugin-publish' version '0.15.0'
+    id 'java-gradle-plugin'
+}
+
+group = 'me.salamander'
+
+gradlePlugin{
+    plugins{
+        gradleRichPresence{
+            id = 'me.salamander.gradle-rich-presence'
+            implementationClass = 'me.salamander.GradleRichPresence'
+        }
+    }
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    flatDir dirs: "build/libs"
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+pluginBundle{
+    website = "http://salanz.tk/"
+    vcsUrl = 
+}
